@@ -16,13 +16,17 @@ Numpy data structures perform better in:
 * ndarray.dtype -- This returns the data type of the array.
 * ndarray.astype -- This changes the data type of an array.
 -------------------------------------------------------------------------------------------------------------------------------------------
-Array from numerical ranges : **np.arange(x)** -- is used to create a range of n values --  Parameters for the function : np.arange(start, stop, step, dtype)
+#### **Array from numerical ranges :**
 
-Array from random numbers : **np.random.random((x,y))** -- to get an array with random input elements of desired shape - Parameters for the function : np.full(shape)
+*np.arange(x)* -- is used to create a range of n values -->  Parameters for the function : np.arange(start, stop, step, dtype)
 
-**Creating ndarray with existing data**
-* List to Ndarray -- np.asarray(list) -------> list = [1,2,3] \n array = np.asarray(list) 
-* Tuple to Ndarray -- np.asarray(tuple) -------> tuple = (1,2,3) \n array = np.asarray(tuple)
+#### **Array from random numbers :** 
+
+*np.random.random((x,y))* -- to get an array with random input elements of desired shape --> Parameters for the function : np.full(shape)
+
+#### **Creating ndarray with existing data**
+* List to Ndarray -- *np.asarray(list)* -------> list = [1,2,3] \n array = np.asarray(list) 
+* Tuple to Ndarray -- *np.asarray(tuple)* -------> tuple = (1,2,3) \n array = np.asarray(tuple)
 
 ## Indexing and Slicing Arrays
 Contents of ndarray object can be accessed and modified by indexing or slicing.
