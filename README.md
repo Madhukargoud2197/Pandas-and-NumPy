@@ -60,3 +60,26 @@ print(a[0:2,1:,1:])
 * np.reshape(array,shape) - To Change shape of an array
 * np.resize(array,shape) - To return new array with shape
 * np.flatten(array) - To flatten the array
+* np.insert(arr, obj, values, axis) - To Insert items to an array
+* np.append(arr, values, axis) - To append items to an array
+* np.delete(arr, obj, axis) - To delete items from an array
+* np.unique(arr, return_index, return_inverse, return_counts) - To get unique items from an array
+
+## **Basic Operations and Functions** 
+* np.add() - Adding two arrays
+* np.subtract() - Subtracting two arrays
+* np.multiply() - Multiplying two arrays
+* np.divide() - Dividing two arrays
+* np.sum() - Sum of items in an array
+* np.min() - Minimum of items in an array
+* np.max() - Minimum of items in an array
+* np.mean() - Mean of items in an array
+* np.sort() - Sorting an array
+
+## **Broadcasting**
+**Broadcasting allows these types of binary operations to be performed on arrays of different sizes**
+
+Broadcasting in NumPy follows a strict set of rules to determine the interaction between the two arrays:
+* Rule 1: If the two arrays differ in their number of dimensions, the shape of the one with fewer dimensions is padded with ones on its leading (left) side.
+* Rule 2: If the shape of the two arrays does not match in any dimension, the array with shape equal to 1 in that dimension is stretched to match the other shape.
+* Rule 3: If in any dimension the sizes disagree and neither is equal to 1, an error is raised.
