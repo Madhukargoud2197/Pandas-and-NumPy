@@ -83,3 +83,53 @@ Broadcasting in NumPy follows a strict set of rules to determine the interaction
 * Rule 1: If the two arrays differ in their number of dimensions, the shape of the one with fewer dimensions is padded with ones on its leading (left) side.
 * Rule 2: If the shape of the two arrays does not match in any dimension, the array with shape equal to 1 in that dimension is stretched to match the other shape.
 * Rule 3: If in any dimension the sizes disagree and neither is equal to 1, an error is raised.
+
+
+## **PANDAS**
+
+Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with structured (tabular, multidimensional, potentially heterogeneous) and time series data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
+
+**Few things that Pandas does well:**
+
+* Robust I/O tools for loading data from flat files (CSV and delimited), Excel files, databases, and saving / loading data from the ultrafast HDF5 format
+* Easy handling of missing data (represented as NaN) in floating point as well as non-floating point data
+* Size mutability: Columns can be inserted and deleted from DataFrame and higher dimensional objects
+* Automatic and explicit data alignment: objects can be explicitly aligned to a set of labels, or the user can simply ignore the labels and let Series, DataFrame, etc. automatically align the data for you in computations
+* Powerful, flexible groupby functionality to perform split-apply-combine operations on data sets, for both aggregating and transforming data
+* Make it easy to convert ragged, differently-indexed data in other Python and NumPy data structures into DataFrame objects
+* Intelligent label-based slicing, fancy indexing, and subsetting of large data sets
+* Intuitive merging and joining data sets
+* Flexible reshaping and pivoting of data sets
+* Hierarchical labeling of axes (possible to have multiple labels per tick)
+* Time series-specific functionality: date range generation and frequency conversion, moving window statistics, moving window linear regressions, date shifting and lagging, etc.
+
+
+**Pandas Cheatsheet: https://assets.datacamp.com/blog_assets/PandasPythonForDataScience.pdf**
+
+**PANDAS DATAFRAMES**
+
+There are two central concepts which you should know about for understanding pandas dataframes:
+**Series** : A series is essentially a column
+**Data Frame** : A DataFrame is a two-dimensional data structure, i.e., data is aligned in a tabular fashion in rows and columns. 
+Pandas DataFrame consists of three principal components, the data, rows, and columns.
+
+
+## **Methods and attributes in Pandas**
+
+* pd.index - used to find the indices of the dataframe
+* pd.head() - Prints the first n rows of the dataframe. By default it prints the first 5 rows.
+* pd.tail() - Prints the last n rows of the dataframe. By default it prints the last 5 rows.
+* pd.columns - Prints the list of columns in a dataframe.
+* pd.info() - Prints the basic information about our dataframe.
+* pd.rename() - Rename the columns of the dataframe.
+* pd.shape() -
+* pd.describe() - 
+
+
+
+
+
+
+
+
+
