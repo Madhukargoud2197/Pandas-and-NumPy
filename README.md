@@ -84,6 +84,9 @@ Broadcasting in NumPy follows a strict set of rules to determine the interaction
 * Rule 2: If the shape of the two arrays does not match in any dimension, the array with shape equal to 1 in that dimension is stretched to match the other shape.
 * Rule 3: If in any dimension the sizes disagree and neither is equal to 1, an error is raised.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## **PANDAS**
 
@@ -122,13 +125,120 @@ Pandas DataFrame consists of three principal components, the data, rows, and col
 * pd.columns - Prints the list of columns in a dataframe.
 * pd.info() - Prints the basic information about our dataframe.
 * pd.rename() - Rename the columns of the dataframe.
-* pd.shape() -
-* pd.describe() - 
+* pd.shape() - Prints the rows and columns in the dataframe
+* pd.describe() - This method gives the overall descriptive summary of the dataframe. This works only for numerical columns.
+
+#### **Indexing and Slicing**
+
+* *iloc* gets rows (or columns) at particular positions in the index (so it only takes integers)-----> index-based locating.
+
+         Let us get a subset which consists of first 8 rows and first 4 columns
+         df.iloc[:9,:4]
+  
+* *loc* gets rows (or columns) with particular labels from the index ------> label based locating.
+
+
+          Let us subset our dataframe in which we want to have first 8 rows identified with their rows labels and some named columns
+          df.loc[50:60,['budget','genres','runtime']]
 
 
 
 
+**Creating another new column by subtracting/adding two existing columns**
 
+    df['movie_profit'] = df['revenue'] - df['budget']
+
+**Removing columns from the dataframe** 
+  
+    df.drop(['id'], axis = 1, inplace=True)
+
+**Dropping multiple columns at once**
+
+    df.drop(['half_runtime','poster_path'],axis=1,inplace=True)
+
+## **Some Basic Operations in Pandas**
+
+* df.columns - Prints all the columns in the dataset
+* df.sum() - Finds the sum of values in a column.
+
+        df['runtime'].sum()
+  
+* df.set_index() - Reset the index with our required input attribute
+
+          # Replacing the index values with the id column
+           df.set_index('id', inplace=True)
+       
+* df.unique() - Finds the list of unique values in a column
+
+        list(df['original_language'].unique())
+* df.nunique() - Counts the number of unique values in a column
+
+        df.original_language.nunique()
+* df.value_counts() - Gives the count of each category of a variable ---> df['languages'].value_counts(): will give the count of each language in the dataframe.
+
+        df['original_language'].value_counts()
+  
+* df.isnull() - Returns a series of booleans if a column value contains nulls.
+  
+        df['homepage'].isnull()
+  
+* df.fillna() - Lets fill the missing values with a value.
+
+        df['homepage'].fillna('Not Present',inplace = True)
+  
+* df.min() - finds the minimum value in a column
+* df.max() - finds the maximum value in a column
+
+         print(f" The shortest movie length is {df['runtime'].min()}")
+         print(f" The largest movie length is {df['runtime'].max()}")
+  
+* df.apply() - applies a function to every row in dataframe.
+
+      # Suppose we want to convert the column network to uppercase
+
+         def to_uppercase(column):
+           return column.upper()
+
+         df['Capitalized_title'] = df['title'].apply(to_uppercase)
+
+  
+* Another way to use apply() involves the use of lambda() function.
+* A lambda() function is a small anonymous function. A lambda() function can take any number of arguments, but can only have one expression.
+
+       # lambda function - Row wise operation
+          def revised_profit(revenue, budget):
+               if revenue > 0:
+                  new_profit = revenue - budget
+               else:
+                  new_profit = np.nan
+               return new_profit
+
+      df['new_profit'] = df.apply(lambda x: revised_profit(x['revenue'], x['budget']),axis=1)
+  
+* df.sort_values() - sorts the values in the column in ascending or decending order.
+
+        df.sort_values(['status','new_profit'], ascending=[False,True]).head()
+
+----------------------------------------------------------------------------------------------------------------------------------  
+* datetime.strptime() -- means string parser, this will convert a string format to datetime.
+* datetime.strftime() -- means string formatter, this will format a datetime object to string format.
+
+      df['new_release_date']=df['release_date'].apply(lambda x : datetime.strptime(x,'%m/%d/%y'))
+
+**Some operations we can do on datetime**
+
+            from datetime import timedelta
+            print(date.today())
+            print(date.today() - timedelta(days=1))
+            print(datetime.now() + timedelta(hours=5.5))
+            print(datetime.now() + timedelta(seconds=60))
+
+ **Difference in two datetime**
+ 
+          time_delta=df['new_release_date'][0]-df['new_release_date'][5]
+          time_delta
+
+  
 
 
 
