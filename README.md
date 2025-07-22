@@ -22,36 +22,49 @@ Numpy data structures perform better in:
 
 #### **Array from random numbers :** 
 
-*np.random.random((x,y))* -- to get an array with random input elements of desired shape --> Parameters for the function : np.full(shape)
+*np.random.random((x,y))* --> to get an array with random input elements of desired shape --> Parameters for the function : np.full(shape)
 
 #### **Creating ndarray with existing data**
-* List to Ndarray -- *np.asarray(list)* -------> list = [1,2,3] \n array = np.asarray(list) 
-* Tuple to Ndarray -- *np.asarray(tuple)* -------> tuple = (1,2,3) \n array = np.asarray(tuple)
+* List to Ndarray -- *np.asarray(list)*
+
+         list = [1,2,3]
+         array = np.asarray(list)
+  
+* Tuple to Ndarray -- *np.asarray(tuple)*
+
+         tuple = (1,2,3)
+          array = np.asarray(tuple)
 
 ## Indexing and Slicing Arrays
 Contents of ndarray object can be accessed and modified by indexing or slicing.
 
 Slicing means retrieving elements from one index to another index. We have to pass the starting and ending point in the index. Slicing includes the starting index but excludes the ending index.
 
----------**1-D array slicing**-----------
+**1-D array slicing**
 
-a = np.arange(10)
+       a = np.arange(10)
+       a[5]
 
-a[5]
+**2-D array slicing**
 
-----------**2-D array slicing**-------------
+      a = np.array([[1,2,3],[4,5,6]])
+          print(a[1,2])
+          
+        --> 6
 
-a = np.array([[1,2,3],[4,5,6]])
+**Slicing 3-D Arrays**
 
-print(a[1,2])
+            a = np.array([[[1,2],[3,4],[5,6]],
+                        [[7,8],[9,10],[11,12]],
+                        [[13,14],[15,16],[17,18]]])
 
------------**Slicing 3-D Arrays**------------
-
-a = np.array([[[1,2],[3,4],[5,6]],
-             [[7,8],[9,10],[11,12]],
-             [[13,14],[15,16],[17,18]]])
-
-print(a[0:2,1:,1:])
+                print(a[0:2,1:,1:])
+                
+              --> 2 layers only, 2nd row values and 2 column values
+              [[[ 4]
+               [ 6]]
+               [[10]
+               [12]]]
 
 
 
